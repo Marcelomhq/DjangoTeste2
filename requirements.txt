@@ -136,7 +136,6 @@ sqlparse==0.5.3
 sympy==1.13.1
 threadpoolctl==3.5.0
 tokenizers==0.21.0
-torch==2.6.0+cu118
 torchaudio==2.6.0+cu118
 torchvision==0.21.0+cu118
 tox==4.24.2
