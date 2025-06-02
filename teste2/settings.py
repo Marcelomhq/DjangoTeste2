@@ -24,18 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-42*wa4t8+m^0g472j^4+ivody#af-ru_24ygtm)&e***0v4wt*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['marcelohq4.pythonanywhere.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'simpleui',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,7 +44,7 @@ INSTALLED_APPS = [
     "tasks",
 ]
 
-MIDDLEWARE = [     
+MIDDLEWARE = [
     "tasks.middleware.aaaamiddleware.RedirectOldLoginMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -54,10 +53,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "tasks.middleware.aaaamiddleware.RequireLoginMiddleware" 
+    "tasks.middleware.aaaamiddleware.RequireLoginMiddleware"
 ]
 
-LOGIN_URL = "/authenticate/"  
+LOGIN_URL = "/authenticate/"
 
 
 ROOT_URLCONF = "teste2.urls"
@@ -94,11 +93,10 @@ WSGI_APPLICATION = "teste2.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'NAME': 'marcelohq4$default',
+        'USER': 'marcelohq4',
+        'PASSWORD': '6930399Mm',
+        'HOST': 'marcelohq4.mysql.pythonanywhere-services.com',
     }
 }
 
@@ -140,12 +138,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIR = [
-    os.path.join(BASE_DIR,'tasks','static'),
-]
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'tasks', 'static', 'tasks'),
+    os.path.join(BASE_DIR, 'tasks', 'static', 'tasks', 'imagens'),
+    ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

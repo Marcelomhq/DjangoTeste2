@@ -7,7 +7,270 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- <link rel="stylesheet" href="C:\Marcelo\PASTA PARA SALVAR\Driver\Uniesp\Sistemas para Internet\Periodo 2\Projeto\djangoteste2\teste2\tasks\static\tasks\style.css"> -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'test.css' %}">-->
+    <!--<link rel="stylesheet" href="{% static 'tasks/style.css' %}">-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body{
+            background: url("{% static 'tasks/imagens/background_login2.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* overflow: hidden; */
+        }
+
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: rgba(39, 39, 39, 0.4);
+        }
+        .nav{
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 6.25rem;
+            line-height: 6.25rem;
+            background: linear-gradient(rgba(39,39,39, 0.6), transparent);
+            z-index: 100;
+        }
+        .nav-logo p{
+            color: white;
+            font-size: 1.56rem;
+            font-weight: 600;
+        }
+        .nav-menu ul{
+            display: flex;
+        }
+        .nav-menu ul li{
+            list-style-type: none;
+        }
+        .nav-menu ul li .link{
+            text-decoration: none;
+            font-weight: 500;
+            color: #fff;
+            padding-bottom: 0.9375rem;
+            margin: 0 1.5625rem;
+        }
+        .link:hover, .active{
+            border-bottom: 0.125rem solid #fff;
+        }
+        .nav-button .btn{
+            width: 8.125rem;
+            height: 2.5rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            border-radius: 1.875rem;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+        .btn:hover{
+            background: rgba(255, 255, 255, 0.3);
+        }
+        #registerBtn{
+            margin-left: 0.9375;
+        }
+        .btn.white-btn{
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .btn.btn.white-btn:hover{
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .nav-menu-btn{
+            display: none;
+        }
+        .form-box{
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 512px;
+            /* width: 90%; */
+            width: 32rem;
+            height: 26.25rem;
+            /* overflow: hidden; */
+            z-index: 2;
+        }
+
+        .login-container{
+            position: absolute;
+            left: 0.25rem;
+            width: 31.25rem;
+            display: flex;
+            flex-direction: column;
+            transition: .5s ease-in-out;
+        }
+        .register-container{
+            position: absolute;
+            right: -32.5rem;
+            width: 31.25rem;
+            display: flex;
+            flex-direction: column;
+            transition: .5s ease-in-out;
+        }
+        .remember-container {
+            position: absolute;
+            left: -31.675rem;
+            width: 31.25rem;
+            display: flex;
+            flex-direction: column;
+            transition: .5s ease-in-out;
+            opacity: 0;
+        }
+
+        .top span{
+            color: #fff;
+            font-size: small;
+            padding: 0.625rem 0;
+            display: flex;
+            justify-content: center;
+        }
+        .top span a{
+            font-weight: 500;
+            color: #fff;
+            margin-left: 0.3125rem;
+        }
+        header{
+            color: #fff;
+            font-size: 1.875rem;
+            text-align: center;
+            padding: 0.625rem 0 1.875rem 0;
+        }
+        .two-forms{
+            display: flex;
+            gap: 0.625rem;
+        }
+        .input-field{
+            font-size: 0.9375rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            height: 3.125rem;
+            width: 100%;
+            padding: 0 0.625rem 0 2.8125rem;
+            border: none;
+            border-radius: 1.875rem;
+            outline: none;
+            transition: .2s ease;
+        }
+        .input-field:hover, .input-field:focus{
+            background: rgba(255, 255, 255, 0.25);
+        }
+        ::-webkit-input-placeholder{
+            color: #fff;
+        }
+        .input-box i{
+            position: relative;
+            top: -2.1875rem;
+            left: 1.0625rem;
+            color: #fff;
+        }
+        .submit{
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: black;
+            height: 2.8125rem;
+            width: 100%;
+            border: none;
+            border-radius: 1.875rem;
+            outline: none;
+            background: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: .3s ease-in-out;
+        }
+        .submit:hover{
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0.0625rem 0.3125rem 0.4375rem 0.0625rem rgba(0, 0, 0, 0.2);
+        }
+
+        .two-col{
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            font-size: small;
+            margin-top: 0.625rem;
+        }
+
+        .two-col .one{
+            display: flex;
+            gap: 0.3125rem;
+        }
+
+        .two label a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .two label a:hover{
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 786px){
+            .nav-button{
+                display: none;
+            }
+            .nav-menu.responsive{
+                top: 6.25rem;
+            }
+            .nav-menu{
+                position: absolute;
+                top: -50rem;
+                display: flex;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.2);
+                width: 100%;
+                height: 90vh;
+                backdrop-filter: blur(1.25rem);
+                transition: .3s;
+            }
+            .nav-menu ul{
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-menu-btn{
+                display: block;
+            }
+            .nav-menu-btn i{
+                font-size: 1.5625rem;
+                color: #fff;
+                padding: 0.625rem;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: .3s;
+            }
+            .nav-menu-btn i:hover{
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+        @media only screen and (max-width: 540px) {
+            .wrapper{
+                min-height: 100vh;
+            }
+            .form-box{
+                width: 100%;
+                height: 500px;
+            }
+            .register-container, .login-container, .remember-container{
+                width: 100%;
+                padding: 0 20px;
+            }
+            .register-container .two-forms{
+                flex-direction: column;
+                gap: 0;
+            }
+
+
+        }
+    </style>
     <title>Web Planner | Login & Cadastro</title>
 </head>
 <body>
@@ -34,11 +297,11 @@
     </nav>
 
     <div class="form-box">
-        
+
         <div class="login-container" id="login">
 
-            <form method="post" action="{% url 'tasks:authenticate' %}" id="login-form"> 
-                {% csrf_token %} 
+            <form method="post" action="{% url 'tasks:authenticate' %}" id="login-form">
+                {% csrf_token %}
                 <div class="top">
                     <span>Não tem uma conta? <a href="#" onclick="showRegisterForm()">Cadastrar-se</a></span>
                     <header>Login</header>
@@ -62,8 +325,8 @@
                             <div class="error-message" style="color: red; font-size: 0.8em;">{{ error }}</div>
                         {% endfor %}
                     {% endif %} -->
-                    
-                    
+
+
                     <!-- error handling here later -->
                 </div>
                 <div class="input-box">
@@ -83,7 +346,7 @@
                     <!-- <input type="password" class="input-field" placeholder="Senha"> -->
                     <!-- {{ form.password }} -->
                     <!-- AGAIN< WTF IS THIS -->
-                    
+
                 </div>
                 <!-- WHy is this here???  -->
                 <div class="error-message non-field" data-error-for="__all__"></div>
@@ -102,32 +365,32 @@
                 </div>
             </form>
         </div>
-    
-        
+
+
         <div class="register-container" id="register">
-            
+
                 <div class="top">
                     <span>Já tem uma conta? <a href="#" onclick="showLoginForm()">Login</a></span>
                     <header>Cadastrar-se</header>
                 </div>
-            <form method="post" action="{% url 'tasks:authenticate' %}" id="register-form"> 
+            <form method="post" action="{% url 'tasks:authenticate' %}" id="register-form">
                 {% csrf_token %}
 
                 <div class="two-forms">
                     <div class="input-box">
                         <input type="text" class="input-field" placeholder="Primeiro Nome" name="{{ register_form.first_name.name }}" data-field-name="first_name" required>
-                        <i class="bx bx-user"></i>  
+                        <i class="bx bx-user"></i>
                         <div class="error-message" data-error-for="first_name"></div>
                         <!-- {% if register_form.first_name.errors %}
                             <div style="color: red;">
                                 {{ register_form.first_name.errors.0 }}
                             </div>
                         {% endif %} -->
-                                              
+
                     </div>
                     <div class="input-box">
                         <input type="text" class="input-field" placeholder="Ultimo Nome" name="{{ register_form.last_name.name }}" data-field-name="last_name" required>
-                        <i class="bx bx-user"></i>  
+                        <i class="bx bx-user"></i>
 
                         <div class="error-message" data-error-for="last_name"></div>
 
@@ -136,12 +399,12 @@
                                 {{ register_form.last_name.errors.0 }}
                             </div>
                         {% endif %} -->
-                                              
+
                     </div>
                 </div>
                 <div class="input-box">
                     <input type="text" class="input-field" placeholder="Email" name="{{ register_form.username.name }}" data-field-name="username" required>
-                    <i class="bx bx-envelope"></i> 
+                    <i class="bx bx-envelope"></i>
                     <div class="error-message" data-error-for="username"></div>
 
                     <!-- {% if register_form.username.errors %}
@@ -149,7 +412,7 @@
                             {{ register_form.username.errors.0 }}
                         </div>
                     {% endif %} -->
-                                       
+
                 </div>
                 <div class="input-box">
                     <input type="password" class="input-field" placeholder="Senha (6-8 caracteres)" name="{{ register_form.password.name }}" data-field-name="password" required>
@@ -161,12 +424,12 @@
                             {{ register_form.password.errors.0 }}
                         </div>
                     {% endif %} -->
-                                     
+
                </div>
 
                <div class="input-box">
                     <input type="password" class="input-field" placeholder="Chave de Registro" name="{{ register_form.reg_key.name }}" data-field-name="reg_key" required>
-                    <i class='bx bx-key'></i> 
+                    <i class='bx bx-key'></i>
                     <div class="error-message" data-error-for="reg_key"></div>
 
                     <!-- {% if register_form.reg_key.errors %}
@@ -174,7 +437,7 @@
                             {{ register_form.reg_key.errors.0 }}
                         </div>
                     {% endif %} -->
-                                      
+
                 </div>
                 <div class="error-message non-field" data-error-for="__all__"></div>
                 <div class="input-box">
@@ -190,29 +453,29 @@
                     </div>
                 <!-- </div> -->
                 </div>
-        
-            
+
+
                 <div class="remember-container" id="remember">
                     <div class="top">
-                        
+
                     <header>Recuperação de senha</header>
                     </div>
                     <div class="input-box">
                         <input type="text" class="input-field" placeholder="Usuário ou Email">
                         <i class="bx bx-user"></i>
                     </div>
-                    
+
                     <div class="input-box">
                         <input type="submit" class="submit" value="Enviar código">
                     </div>
-                
+
                 </div>
-            </form> 
+            </form>
         </div>
 
-        
-    </div>  
-    
+
+    </div>
+
     <!-- WHY IS THIS HERE AGAIN??? -->
     {% if messages %}
         <ul class="messages" id="django-messages">
@@ -220,10 +483,10 @@
                 <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
             {% endfor %}
         </ul>
-    {% endif %} 
+    {% endif %}
 
 
-    <script>    
+    <script>
         function funcaoMenu() {
             var i = document.getElementById("navMenu");
 
@@ -232,7 +495,7 @@
             } else {
                 i.className = "nav-menu";
             }
-        }    
+        }
     </script>
     <script>
         // --- Element Selection (Do this once, globally) ---
@@ -244,7 +507,7 @@
         const registerForm = document.getElementById('register-form'); // The <form> element
         const navMenu = document.getElementById("navMenu");          // For menu function
         const csrfTokenInput = document.querySelector('input[name="csrfmiddlewaretoken"]');
-    
+
         // Check if essential elements were found
         if (!loginFormDiv || !registerFormDiv) {
             console.error("Error: Login or Register container DIV not found!");
@@ -256,8 +519,8 @@
             console.error("CRITICAL ERROR: CSRF Token input field not found!");
         }
         const csrfToken = csrfTokenInput ? csrfTokenInput.value : null; // Get value safely AFTER checking
-    
-    
+
+
         // --- Form Visibility Toggle Functions ---
         // Use the globally selected div elements directly
         function showLoginForm() {
@@ -278,17 +541,17 @@
             if (registerFormDiv) { registerFormDiv.style.left = "-31.875rem"; registerFormDiv.style.opacity = "0"; }
             if (rememberFormDiv) { rememberFormDiv.style.left = "0.25rem"; rememberFormDiv.style.opacity = "1"; }
         }
-    
-    
+
+
         // --- AJAX Form Submission Handling ---
-    
+
         function clearFormErrors(formElement) {
             if (!formElement) return;
             console.log("Clearing errors for form:", formElement.id); // Debug
             const errorMessages = formElement.querySelectorAll('.error-message');
             errorMessages.forEach(msg => msg.innerHTML = '');
         }
-    
+
         function displayFormErrors(formElement, errors) {
             if (!formElement || !errors) return;
             console.log("Displaying errors for form:", formElement.id, errors); // Debug
@@ -308,18 +571,18 @@
                 }
             }
         }
-    
+
         async function handleFormSubmit(event) {
             event.preventDefault(); // *Critical* Stop default page reload
             const form = event.target;
             console.log(`Submit intercepted for form: ${form.id}`); // Debug
-    
+
             if (!csrfToken) {
                 alert("Cannot submit form: CSRF token is missing.");
                 console.error("CSRF token missing during submit attempt.");
                 return; // Stop submission
             }
-    
+
             const formData = new FormData(form);
 
             if (form.id === 'login-form') {
@@ -330,12 +593,12 @@
 
 
             clearFormErrors(form);
-    
+
             const submitButton = form.querySelector('input[type="submit"]');
             const originalButtonValue = submitButton.value;
             submitButton.disabled = true;
             submitButton.value = 'Processing...';
-    
+
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
@@ -346,7 +609,7 @@
                     },
                     body: formData
                 });
-    
+
                 // Try to parse JSON regardless of response.ok - error responses have JSON bodies too
                 let data;
                 try {
@@ -361,8 +624,8 @@
                      // Stop further processing if JSON parsing fails
                      throw new Error("Invalid JSON response from server.");
                 }
-    
-    
+
+
                 if (!response.ok) { // Check HTTP status code (e.g., 400, 500)
                     console.error(`Response not OK: ${response.status}`);
                     if (data && data.status === 'error' && data.errors) {
@@ -395,7 +658,7 @@
                         }
                     }
                 }
-    
+
             } catch (error) { // Catch network errors or errors thrown above (like JSON parse failure)
                 console.error('Fetch Error or Processing Error:', error);
                 alert('Could not process the request. Please check your connection or console and try again.');
@@ -405,15 +668,15 @@
                 submitButton.value = originalButtonValue;
             }
         }
-    
+
         // --- Attach Listeners and Set Initial State ---
         // Use DOMContentLoaded to ensure elements exist before attaching listeners
         document.addEventListener('DOMContentLoaded', () => {
             console.log("DOM fully loaded and parsed.");
-    
+
             // Set initial form visibility
             showLoginForm();
-    
+
             // Attach submit listeners
             if (loginForm) {
                 console.log("Attaching submit listener to login form.");
@@ -427,14 +690,14 @@
             } else {
                 console.error("Register form element (#register-form) not found on DOMContentLoaded!");
             }
-    
+
             // Verify CSRF token again (in case it was added dynamically later, though unlikely here)
             if (!csrfToken) {
                  console.error("CRITICAL ERROR: CSRF Token not found on DOMContentLoaded!");
             }
         });
-    
-    
+
+
         // --- Menu Function ---
          function myMenuFunction() { // Ensure this name matches onclick in HTML
             console.log("myMenuFunction called"); // Debug
@@ -448,7 +711,7 @@
                  console.error("navMenu element not found!");
              }
         }
-    
+
     </script>
     <!-- <script>
         // let loginForm = document.getElementById("login");
@@ -525,7 +788,7 @@
             loginForm.style.opacity = "0";
             registerForm.style.opacity = "0";
             rememberForm.style.opacity = "1";
-        }    
+        }
 
         // --- AJAX Form Submission Handling ---
         const loginForm = document.getElementById('login-form');
